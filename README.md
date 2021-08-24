@@ -75,3 +75,9 @@ Place your comments here. Any non-commented lines will be commented when saving.
 hi! this is my first piece of software ever so i apologize for the messy code. i've tried my best to comment everything so that all functions are easily understandable.
 
 this project was made in the Godot Engine and uses a modified version of the [SyndiBox Text Engine](https://github.com/TeamSyndi/syndibox) for all text effects. all other scripts are original 
+
+### Credits
+OMORI Dialogue Formatter by ZZMthesurand
+OMORI text sound by OMOCAT
+SyndiBox Text Engine by Sudospective
+
