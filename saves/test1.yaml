@@ -1,0 +1,14 @@
+message_1:
+      faceset: MainCharacters_DreamWorld
+      faceindex: 1
+      text:\n<AUBREY>epic gamer! loser...
+message_2:
+      faceset: MainCharacters_DreamWorld
+      faceindex: 16
+      text:\n<KEL>hi omori!
+message_3:
+      faceset: MainCharacters_DreamWorld
+      faceindex: 39
+      text:\n<HERO>yo!
+message_:
+      text:this is the game.

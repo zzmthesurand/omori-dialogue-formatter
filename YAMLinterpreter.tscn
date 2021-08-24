@@ -1,0 +1,562 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://scripts/main.gd" type="Script" id=1]
+[ext_resource path="res://scripts/FileMenu.gd" type="Script" id=2]
+[ext_resource path="res://StyleBoxes/omoribox_hover.tres" type="StyleBox" id=3]
+[ext_resource path="res://StyleBoxes/omoribox.tres" type="StyleBox" id=4]
+[ext_resource path="res://scripts/ColorButton.gd" type="Script" id=5]
+[ext_resource path="res://scripts/MoveFX.gd" type="Script" id=6]
+[ext_resource path="res://fonts/OMORI_GAME2.tres" type="DynamicFont" id=7]
+[ext_resource path="res://StyleBoxes/omoribox_pressed.tres" type="StyleBox" id=8]
+[ext_resource path="res://scenes/AddBox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scripts/SettingsWindow.gd" type="Script" id=10]
+[ext_resource path="res://img/settings.png" type="Texture" id=12]
+[ext_resource path="res://img/twt.png" type="Texture" id=13]
+[ext_resource path="res://img/yt.png" type="Texture" id=14]
+[ext_resource path="res://fonts/sizes/OMORI_GAME2_s-3.tres" type="DynamicFont" id=15]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.439216, 0.478431, 0, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_left = 288.0
+margin_top = 93.0
+margin_right = 784.0
+margin_bottom = 519.0
+window_title = "Open a File"
+mode = 0
+access = 2
+filters = PoolStringArray( "*.yaml" )
+current_dir = "/Users/joshu/Documents/Godot/YEML interpreter"
+current_path = "/Users/joshu/Documents/Godot/YEML interpreter/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveDialog" type="FileDialog" parent="."]
+margin_left = 288.0
+margin_top = 93.0
+margin_right = 784.0
+margin_bottom = 519.0
+access = 2
+filters = PoolStringArray( "*.yaml" )
+current_dir = "/Users/joshu/Documents/Godot/YEML interpreter/saves"
+current_path = "/Users/joshu/Documents/Godot/YEML interpreter/saves/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToolsMargin" type="MarginContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -182.0
+margin_top = 64.0
+margin_right = -13.0
+margin_bottom = 575.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToolsVBox" type="VBoxContainer" parent="ToolsMargin"]
+margin_right = 169.0
+margin_bottom = 511.0
+
+[node name="MoveFX" type="OptionButton" parent="ToolsMargin/ToolsVBox"]
+margin_right = 169.0
+margin_bottom = 38.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 7 )
+enabled_focus_mode = 0
+text = "Move FX"
+align = 1
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorButton" type="OptionButton" parent="ToolsMargin/ToolsVBox"]
+margin_top = 42.0
+margin_right = 169.0
+margin_bottom = 80.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 7 )
+enabled_focus_mode = 0
+text = "Color"
+align = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineBreak" type="Button" parent="ToolsMargin/ToolsVBox"]
+margin_top = 84.0
+margin_right = 169.0
+margin_bottom = 122.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 7 )
+enabled_focus_mode = 0
+text = "Line Break"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer" type="Panel" parent="ToolsMargin/ToolsVBox"]
+margin_top = 126.0
+margin_right = 169.0
+margin_bottom = 131.0
+rect_min_size = Vector2( 0, 5 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaitPlayer" type="Button" parent="ToolsMargin/ToolsVBox"]
+margin_top = 135.0
+margin_right = 169.0
+margin_bottom = 173.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 7 )
+enabled_focus_mode = 0
+text = "Wait for Z"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaitPlayer2" type="Button" parent="ToolsMargin/ToolsVBox"]
+margin_top = 177.0
+margin_right = 169.0
+margin_bottom = 215.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 7 )
+enabled_focus_mode = 0
+text = "Wait for 1s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaitPlayer3" type="Button" parent="ToolsMargin/ToolsVBox"]
+margin_top = 219.0
+margin_right = 169.0
+margin_bottom = 257.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 7 )
+enabled_focus_mode = 0
+text = "Wait for 0.25s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer2" type="Panel" parent="ToolsMargin/ToolsVBox"]
+margin_top = 261.0
+margin_right = 169.0
+margin_bottom = 266.0
+rect_min_size = Vector2( 0, 5 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ToolsMargin/ToolsVBox"]
+margin_top = 270.0
+margin_right = 169.0
+margin_bottom = 308.0
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 7 )
+text = "Font size:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FontSizeHBox" type="HBoxContainer" parent="ToolsMargin/ToolsVBox"]
+margin_top = 312.0
+margin_right = 169.0
+margin_bottom = 350.0
+
+[node name="Font+" type="Button" parent="ToolsMargin/ToolsVBox/FontSizeHBox"]
+margin_right = 82.0
+margin_bottom = 38.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 7 )
+enabled_focus_mode = 0
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Font-" type="Button" parent="ToolsMargin/ToolsVBox/FontSizeHBox"]
+margin_left = 86.0
+margin_right = 169.0
+margin_bottom = 38.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 7 )
+enabled_focus_mode = 0
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer3" type="Panel" parent="ToolsMargin/ToolsVBox"]
+margin_top = 354.0
+margin_right = 169.0
+margin_bottom = 359.0
+rect_min_size = Vector2( 0, 5 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ToolsMargin/ToolsVBox"]
+margin_top = 363.0
+margin_right = 169.0
+margin_bottom = 405.0
+
+[node name="Button" type="Button" parent="ToolsMargin/ToolsVBox/HBoxContainer"]
+margin_right = 94.0
+margin_bottom = 42.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 7 )
+enabled_focus_mode = 0
+text = " GO TO: "
+
+[node name="IDquery" type="LineEdit" parent="ToolsMargin/ToolsVBox/HBoxContainer"]
+margin_left = 98.0
+margin_right = 169.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 7 )
+custom_constants/minimum_spaces = 2
+align = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 17.0
+margin_top = 13.0
+margin_right = -198.0
+margin_bottom = -16.0
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 809.0
+margin_bottom = 571.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddBox" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 9 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 809.0
+margin_bottom = 38.0
+
+[node name="OptionButton" type="OptionButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -140.0
+margin_top = 12.7682
+margin_right = -13.0
+margin_bottom = 50.7682
+focus_mode = 0
+size_flags_horizontal = 3
+custom_styles/hover = ExtResource( 3 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 7 )
+toggle_mode = false
+enabled_focus_mode = 0
+text = "File"
+align = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsWindow" type="WindowDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -263.0
+margin_top = -183.0
+margin_right = 234.0
+margin_bottom = 197.0
+rect_min_size = Vector2( 480, 380 )
+popup_exclusive = true
+window_title = "Settings"
+resizable = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="SettingsWindow"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Label" type="Label" parent="SettingsWindow"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = -141.0
+margin_right = -16.0
+margin_bottom = -112.0
+custom_fonts/font = ExtResource( 15 )
+text = "(please credit me if you use this!!!)"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Label" parent="SettingsWindow"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = -191.0
+margin_right = -16.0
+margin_bottom = -51.0
+custom_fonts/font = ExtResource( 7 )
+custom_constants/line_spacing = -5
+text = "OMORI Dialogue Formatter 1.0.5
+by ZZMthesurand (2021) 
+
+Originally made for the OMARI mod
+(Check us out!)"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsWindow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsWindow/MarginContainer"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 482.0
+margin_bottom = 365.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsWindow/MarginContainer/VBoxContainer"]
+margin_right = 467.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="SettingsWindow/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 96.0
+margin_bottom = 19.0
+text = "Facesets Path: "
+
+[node name="FacesetsPathLabel" type="LineEdit" parent="SettingsWindow/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 100.0
+margin_right = 404.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+placeholder_text = "Path to folder with facesets here"
+
+[node name="Button" type="Button" parent="SettingsWindow/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 408.0
+margin_top = 4.0
+margin_right = 467.0
+margin_bottom = 24.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Browse"
+
+[node name="Label2" type="Label" parent="SettingsWindow/MarginContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 467.0
+margin_bottom = 59.0
+text = "Facesets must be 4 columns wide with a resolution of 106x106 per tile.
+"
+
+[node name="CharacterPresets" type="HBoxContainer" parent="SettingsWindow/MarginContainer/VBoxContainer"]
+margin_top = 63.0
+margin_right = 467.0
+margin_bottom = 87.0
+
+[node name="Label" type="Label" parent="SettingsWindow/MarginContainer/VBoxContainer/CharacterPresets"]
+margin_top = 5.0
+margin_right = 84.0
+margin_bottom = 19.0
+text = "Char Presets:"
+
+[node name="CharPresetsLabel" type="LineEdit" parent="SettingsWindow/MarginContainer/VBoxContainer/CharacterPresets"]
+margin_left = 88.0
+margin_right = 467.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+virtual_keyboard_enabled = false
+placeholder_text = "Name1, Name2, Name3,"
+
+[node name="Label" type="Label" parent="SettingsWindow/MarginContainer/VBoxContainer"]
+margin_top = 91.0
+margin_right = 467.0
+margin_bottom = 207.0
+text = "NOTICE: Please add presets at the END of the list. Adding a name in the middle of the list will mess with the name dropdown menus of each dialogue.
+
+Please make sure that no messages share the same message IDs.
+
+Enjoy!"
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsWindow"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = -49.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Twitter" type="Button" parent="SettingsWindow/HBoxContainer"]
+margin_right = 241.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+text = "@_omariAU"
+icon = ExtResource( 13 )
+
+[node name="Youtube" type="Button" parent="SettingsWindow/HBoxContainer"]
+margin_left = 245.0
+margin_right = 487.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+text = "OMARI AU"
+icon = ExtResource( 14 )
+expand_icon = true
+
+[node name="SettingsButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -181.759
+margin_top = 12.7682
+margin_right = -143.759
+margin_bottom = 50.7682
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 4 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="SettingsButton"]
+margin_left = 5.74524
+margin_top = 5.65686
+margin_right = 45.7452
+margin_bottom = 45.6569
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TilesetsDialog" type="FileDialog" parent="."]
+margin_left = 244.0
+margin_top = 139.0
+margin_right = 736.0
+margin_bottom = 505.0
+window_title = "Open a Directory"
+mode = 2
+access = 2
+current_dir = "/Users/joshu/Documents/Godot/YEML interpreter"
+current_path = "/Users/joshu/Documents/Godot/YEML interpreter/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pngError" type="AcceptDialog" parent="."]
+margin_left = 399.0
+margin_top = 265.0
+margin_right = 643.0
+margin_bottom = 390.0
+window_title = "Error"
+dialog_text = "There are no .png files in the faceset directory. Please reselect the directory."
+dialog_autowrap = true
+
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="file_selected" from="SaveDialog" to="." method="saveFileAs"]
+[connection signal="item_selected" from="ToolsMargin/ToolsVBox/MoveFX" to="." method="moveFX"]
+[connection signal="item_selected" from="ToolsMargin/ToolsVBox/ColorButton" to="." method="colorText"]
+[connection signal="button_up" from="ToolsMargin/ToolsVBox/LineBreak" to="." method="addLinebreak"]
+[connection signal="button_up" from="ToolsMargin/ToolsVBox/WaitPlayer" to="." method="waitForPlayerInput" binds= [ "playerinput" ]]
+[connection signal="button_up" from="ToolsMargin/ToolsVBox/WaitPlayer2" to="." method="waitForPlayerInput" binds= [ "1sec" ]]
+[connection signal="button_up" from="ToolsMargin/ToolsVBox/WaitPlayer3" to="." method="waitForPlayerInput" binds= [ "0.25sec" ]]
+[connection signal="button_up" from="ToolsMargin/ToolsVBox/FontSizeHBox/Font+" to="." method="fontSizeChange" binds= [ true ]]
+[connection signal="button_up" from="ToolsMargin/ToolsVBox/FontSizeHBox/Font-" to="." method="fontSizeChange" binds= [ false ]]
+[connection signal="button_up" from="ToolsMargin/ToolsVBox/HBoxContainer/Button" to="." method="goToMessage"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="timeout" from="SettingsWindow/Timer" to="SettingsWindow" method="nameupdateTimer"]
+[connection signal="button_up" from="SettingsWindow/MarginContainer/VBoxContainer/HBoxContainer/Button" to="SettingsWindow" method="browseButtonUp"]
+[connection signal="text_changed" from="SettingsWindow/MarginContainer/VBoxContainer/CharacterPresets/CharPresetsLabel" to="SettingsWindow" method="charpresetsChange"]
+[connection signal="button_up" from="SettingsWindow/HBoxContainer/Twitter" to="SettingsWindow" method="openSocial" binds= [ "twitter" ]]
+[connection signal="button_up" from="SettingsWindow/HBoxContainer/Youtube" to="SettingsWindow" method="openSocial" binds= [ "youtube" ]]
+[connection signal="button_up" from="SettingsButton" to="." method="settingsPop"]
+[connection signal="dir_selected" from="TilesetsDialog" to="SettingsWindow" method="tilesetsDirSelected"]

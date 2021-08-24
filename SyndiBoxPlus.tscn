@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/SyndiBox/syndibox.gd" type="Script" id=1]
+
+[node name="SyndiBox" type="ReferenceRect"]
+visible = false
+margin_top = 28.0
+margin_right = 741.0
+margin_bottom = 133.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+border_width = 2.0
+script = ExtResource( 1 )
+FONT = "res://fonts/OMORI_GAME2.tres"
+ALTERNATE_FONTS = [ "res://fonts/OMORI_GAME.tres" ]
+SIZE_FONTS = [ "res://fonts/sizes/OMORI_GAME2_s1.tres", "res://fonts/sizes/OMORI_GAME2_s2.tres", "res://fonts/sizes/OMORI_GAME2_s3.tres" ]
+SMALL_FONTS = [ "res://fonts/sizes/OMORI_GAME2_s-1.tres", "res://fonts/sizes/OMORI_GAME2_s-2.tres", "res://fonts/sizes/OMORI_GAME2_s-3.tres" ]
+TEXT_VOICE = "res://sound/[SE]-TEXT.ogg"
+TEXT_SPEED = 0.017
+CUSTOM_EFFECTS = "res://addons/SyndiBox/custom.gd"
