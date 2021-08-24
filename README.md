@@ -48,13 +48,30 @@ Within the properties bar, you will see these items (in order from left to right
 ### Text Edit
 This is where you place your text and tags. I recommend writing your "text" first, then using the tools on the righthand menu to format the text with different font sizes, colors, and etc.
 
-## Tags
+## Tags & Tools
 RPG Maker uses a blackslash (\\) to denote their tags. Within the modified SyndiBox text engine, the tag must end with a grave accent " \` ". This is the key below escape and ***NOT the apostrophe character***
 
-`to be continued`
+1. `Move FX` - this surrounds the highlighted text with the corresponding tags  
+        a. Vertical Shake & Vertical Shake Strong - \\SINV\[x]\` and \\SINV\[0]\` (resets effect). x corresponds to shake speed (1 is slower and 2 is faster).  
+        b. Horizontal Shake - \\SINH\[1]\` and \\SINH\[0]\` (resets effect). this only has one strength option.  
+        c. Earthquake Strong & Earthquake - \\QUAKE\[x]\` and \\QUAKE\[0]\` (resets effect). x corresponds to shake speed (1 is faster and 2 is slower)  
+    ***NOTE: earthquake effect in-game looks somewhat different from the earthquake effect in this program.***  
+2. `Color` - colors the highlighted text with the selected color  
+         - follows tag format \\c\[x], where x is the color index. 0 is white, so use that for resetting the color  
+3. `Line Break` - adds a `\<br>` tag. ***NOTICE: Using the enter button to add a new line will break the dialogue. The text edit will automatically wrap the text for you.  
+4. `Wait for...` - adds a tag that waits for the specified time  
+        a. Wait for Z - \\!\` - waits for the player input before continuing text  
+        b. Wait for 1s - \\|\` - waits for 1 second (60 RPG Maker ticks) before continuing text  
+        c. Wait for 0.25s - \\.\` - waits for 0.25 seconds (15 RPG Maker ticks) before continuing text  
+5. `Font size:` - adds a tag for increasing or decreasing the font size (does not accurately reflect font sizes in-game)  
+        a. `+` - \\{\` - increases font size  
+        b. `-` - \\}\` - decreases font size  
+6. `GO TO:` - goes to the message with the specified ID  
+
+## Comment Box
+Place your comments here. Any non-commented lines will be commented when saving.
 
 ### Dev's Note
 hi! this is my first piece of software ever so i apologize for the messy code. i've tried my best to comment everything so that all functions are easily understandable.
 
-
-this project uses a modified version of the [SyndiBox Text Engine](https://github.com/TeamSyndi/syndibox) for all text effects. 
+this project was made in the Godot Engine and uses a modified version of the [SyndiBox Text Engine](https://github.com/TeamSyndi/syndibox) for all text effects. all other scripts are original 
